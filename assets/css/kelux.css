@@ -212,8 +212,6 @@ strong{ font-weight:500; color:var(--txt-warm); }
 .areas__grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(272px, 1fr));
-  gap:1px;
-  background:var(--line-soft);
   border:1px solid var(--line-soft);
 }
 
@@ -223,6 +221,7 @@ strong{ font-weight:500; color:var(--txt-warm); }
   padding:26px 24px 24px;
   min-height:158px;
   display:flex; flex-direction:column;
+  box-shadow:inset -1px 0 0 var(--line-soft), inset 0 -1px 0 var(--line-soft);
   transition:background .4s ease;
 }
 
@@ -259,12 +258,13 @@ a.area:hover .area__name{ color:var(--luz-core); }
 
 /* Por acender */
 .area--soon{ background:#070A11; }
-.area--soon .area__note{ color:rgba(139,147,165,.55); }
+.area--soon .area__note{ color:var(--mut); }
+.area--soon .rn{ color:var(--mut); }
 
 .area__soon{
   margin-top:14px;
   font-family:var(--mono); font-size:10px; letter-spacing:.18em;
-  text-transform:uppercase; color:rgba(139,147,165,.5);
+  text-transform:uppercase; color:var(--mut);
 }
 
 /* --------------------------------------------------------------------------
@@ -308,13 +308,14 @@ a.area:hover .area__name{ color:var(--luz-core); }
 }
 .secnav__btn[aria-current="true"] .rn{ color:var(--gold); }
 
-/* Secções */
-.sec{ display:none; padding:clamp(46px,8vh,86px) 0 clamp(60px,11vh,120px); }
-.sec.is-active{ display:block; animation:fade .5s ease both; }
+/* Secções — todas visíveis, uma a seguir à outra */
+.sec{
+  padding:clamp(56px,10vh,110px) 0 clamp(56px,10vh,110px);
+  scroll-margin-top:118px;
+}
+.sec + .sec{ border-top:1px solid var(--line-soft); }
 
-@keyframes fade{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:none;} }
-
-.sec__head{ margin-bottom:clamp(32px,5vh,54px); }
+.sec__head{ margin-bottom:clamp(28px,4.5vh,46px); }
 .sec__eyebrow{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
 .sec__head h2{ margin-bottom:16px; }
 .sec__lede{ font-size:clamp(15.5px,1.7vw,18px); color:var(--mut); max-width:62ch; }
@@ -334,8 +335,6 @@ a.area:hover .area__name{ color:var(--luz-core); }
 .team{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(196px,1fr));
-  gap:1px;
-  background:var(--line-soft);
   border:1px solid var(--line-soft);
 }
 
@@ -343,6 +342,7 @@ a.area:hover .area__name{ color:var(--luz-core); }
   background:var(--ink);
   padding:30px 22px 26px;
   text-align:center;
+  box-shadow:inset -1px 0 0 var(--line-soft), inset 0 -1px 0 var(--line-soft);
   transition:background .4s ease;
 }
 .member:hover{ background:var(--ink-2); }
@@ -439,6 +439,10 @@ a.area:hover .area__name{ color:var(--luz-core); }
   text-shadow:0 0 70px rgba(227,183,120,.28);
 }
 
+.mega__pc{ font-size:.52em; margin-left:.02em; }
+
+.mega--sm .mega__n{ font-size:clamp(78px,12vw,150px); }
+
 .mega__side{ padding-bottom:6px; }
 
 .mega__u{
@@ -467,14 +471,29 @@ a.area:hover .area__name{ color:var(--luz-core); }
 /* Mosaicos curtos — pouco texto, muito ar */
 .tiles{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(212px,1fr));
-  gap:1px; background:var(--line-soft);
   border:1px solid var(--line-soft);
 }
-.tile{ background:var(--ink-2); padding:26px 22px 24px; }
+.tile{
+  background:var(--ink-2); padding:26px 22px 24px;
+  box-shadow:inset -1px 0 0 var(--line-soft), inset 0 -1px 0 var(--line-soft);
+}
 .tile__n{
   font-family:var(--mono); font-size:11px; letter-spacing:.14em;
   color:var(--gold-deep); display:block; margin-bottom:16px;
 }
+
+/* Número dentro do mosaico */
+.tile__big{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(38px,5vw,58px);
+  line-height:1;
+  color:var(--luz);
+  margin-bottom:14px;
+  white-space:nowrap;
+}
+.tile__big-s{ font-size:.58em; }
+.tile__mais{ color:var(--gold-deep); font-size:.55em; margin:0 .06em; }
 .tile__t{
   font-family:var(--display); font-size:clamp(19px,2.2vw,24px);
   line-height:1.24; color:var(--txt-warm);
@@ -619,16 +638,6 @@ table.tbl tbody tr:hover td{ background:rgba(227,183,120,.035); }
 table.tbl td:last-child{ color:var(--luz); }
 table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right; }
 
-/* Aviso de privacidade */
-.privacy{
-  display:flex; gap:14px; align-items:flex-start;
-  margin-top:18px; padding:17px 19px;
-  border:1px solid var(--line);
-  background:rgba(227,183,120,.045);
-  font-size:14px; color:var(--txt-warm); line-height:1.58;
-}
-.privacy .lamp{ margin-top:8px; }
-
 /* --------------------------------------------------------------------------
    IV — Pipeline
    -------------------------------------------------------------------------- */
@@ -679,10 +688,11 @@ table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right
 .ficha__grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(196px,1fr));
-  gap:1px;
-  background:var(--line-soft);
 }
-.field{ background:var(--ink-2); padding:14px 18px; }
+.field{
+  background:var(--ink-2); padding:14px 18px;
+  box-shadow:inset -1px 0 0 var(--line-soft), inset 0 -1px 0 var(--line-soft);
+}
 .field__k{
   font-family:var(--mono); font-size:9.5px; letter-spacing:.15em;
   text-transform:uppercase; color:var(--mut); display:block; margin-bottom:6px;
@@ -782,11 +792,13 @@ table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right
 
 .stats{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
-  gap:1px; background:var(--line-soft);
   border:1px solid var(--line-soft);
   margin-bottom:30px;
 }
-.stat{ background:var(--ink-2); padding:21px 20px; }
+.stat{
+  background:var(--ink-2); padding:21px 20px;
+  box-shadow:inset -1px 0 0 var(--line-soft), inset 0 -1px 0 var(--line-soft);
+}
 .stat__k{
   font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--mut); display:block; margin-bottom:10px;
@@ -882,17 +894,19 @@ table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right
   font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--mut);
 }
 
+.chart__nota{ margin-top:14px; font-size:13.5px; color:var(--mut); }
+
 /* Etiqueta de dados de exemplo */
 .demo{
   display:inline-flex; align-items:center; gap:8px;
   font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
-  color:rgba(139,147,165,.62);
+  color:var(--mut);
   border:1px solid var(--line-soft);
   padding:5px 11px;
 }
 .demo::before{
   content:""; width:5px; height:5px; border-radius:50%;
-  background:rgba(139,147,165,.55);
+  background:var(--mut);
 }
 
 /* --------------------------------------------------------------------------
@@ -907,7 +921,7 @@ table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right
   display:flex; justify-content:space-between; align-items:center;
   gap:18px; flex-wrap:wrap;
   font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
-  text-transform:uppercase; color:rgba(139,147,165,.6);
+  text-transform:uppercase; color:var(--mut);
 }
 
 /* --------------------------------------------------------------------------
@@ -944,6 +958,8 @@ table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right
   .stat__v{ font-size:28px; }
 
   .step{ min-width:38px; }
+
+  .sec{ scroll-margin-top:104px; }
 
   .mega{ gap:16px; }
   .mega__n{ line-height:.85; }

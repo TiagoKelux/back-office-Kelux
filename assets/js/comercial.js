@@ -1,6 +1,6 @@
 /* ==========================================================================
    Kelux AI — Back office interno
-   Área comercial: navegação e renderização.
+   Área comercial: navegação, scroll e renderização.
    Sem dependências. Os dados vêm de assets/js/dados.js
    ========================================================================== */
 
@@ -25,13 +25,15 @@
   }
 
   /* ------------------------------------------------------------------------
-     Navegação entre secções
+     Navegação — a página corre toda de uma vez, os separadores só marcam
+     onde vamos e levam lá quando se clica.
      ------------------------------------------------------------------------ */
 
   const seccoes = $$('.sec');
   const nav = $('#secnav');
+  const botoes = [];
 
-  seccoes.forEach((sec, i) => {
+  seccoes.forEach(sec => {
     const b = document.createElement('button');
     b.className = 'secnav__btn';
     b.type = 'button';
@@ -39,25 +41,49 @@
     b.dataset.alvo = sec.id;
     b.innerHTML = '<span class="rn">' + sec.dataset.rn + '</span>' +
                   '<span>' + sec.dataset.nome + '</span>';
-    b.addEventListener('click', () => abrir(sec.id, true));
+    b.addEventListener('click', () => {
+      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + sec.id);
+    });
     nav.appendChild(b);
-    if (i === 0) b.setAttribute('aria-current', 'true');
+    botoes.push(b);
   });
 
-  function abrir(id, comScroll) {
-    const alvo = document.getElementById(id);
-    if (!alvo) return;
+  /* Marca a secção que está a ser lida e arrasta o separador para a vista */
+  let atual = null;
 
-    seccoes.forEach(s => s.classList.toggle('is-active', s === alvo));
-    $$('.secnav__btn', nav).forEach(b =>
-      b.setAttribute('aria-current', String(b.dataset.alvo === id))
-    );
+  function marcar() {
+    const limite = 160;   // abaixo do cabeçalho fixo
+    let i = 0;
+    for (let k = 0; k < seccoes.length; k++) {
+      if (seccoes[k].getBoundingClientRect().top <= limite) i = k;
+    }
 
-    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    // no fim da página, a última secção manda
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+      i = seccoes.length - 1;
+    }
 
-    if (comScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (id === 'sec-6') requestAnimationFrame(animarBarras);
+    if (i === atual) return;
+    atual = i;
+
+    botoes.forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+
+    const b = botoes[i];
+    const alvo = b.offsetLeft - (nav.clientWidth - b.offsetWidth) / 2;
+    nav.scrollTo({ left: Math.max(0, alvo), behavior: 'smooth' });
+
+    history.replaceState(null, '', '#' + seccoes[i].id);
   }
+
+  let pendente = false;
+  window.addEventListener('scroll', () => {
+    if (pendente) return;
+    pendente = true;
+    requestAnimationFrame(() => { pendente = false; marcar(); });
+  }, { passive: true });
+
+  window.addEventListener('resize', marcar, { passive: true });
 
   /* ------------------------------------------------------------------------
      I — A equipa
@@ -154,12 +180,15 @@
 
     const iDegrau = ESCADA.degraus.indexOf(ESCADA.metaAtual) + 1;
 
+    /* O número grande da secção acompanha a vista */
+    $('#mega-total').textContent = v.total;
+    $('#mega-etiqueta').textContent = v.etiqueta.charAt(0).toUpperCase() + v.etiqueta.slice(1);
+
     $('#stats').innerHTML = [
-      ['Reuniões marcadas', v.total, 'luz', v.etiqueta],
       ['Meta da semana', ESCADA.metaAtual, '', 'Equipa toda'],
       ['Degrau atual', romano(iDegrau) + ' de ' + romano(ESCADA.degraus.length), '', ESCADA.metaAtual + ' reuniões'],
-      ['No-show da equipa', nsEquipa + '%', '', v.etiqueta],
-      ['Recorde da equipa', RECORDE.valor, '', RECORDE.quando]
+      ['No-show da equipa', nsEquipa + '%', '', 'reuniões já realizadas'],
+      ['Recorde da equipa', RECORDE.valor, 'luz', RECORDE.quando]
     ].map(s =>
       '<div class="stat">' +
         '<span class="stat__k">' + s[0] + '</span>' +
@@ -185,12 +214,12 @@
              '</div>';
     }).join('') +
     '<div class="chart__foot">' +
-      '<span>Total ' + v.etiqueta + ' · ' + v.total + ' reuniões</span>' +
+      '<span>Total ' + v.etiqueta + ' &middot; ' + v.total + ' reuniões</span>' +
       '<span>' + (vista === 'semana'
         ? (v.total >= ESCADA.metaAtual
-            ? 'Meta batida · a escada sobe no domingo'
+            ? 'Meta batida &middot; a escada sobe no domingo'
             : 'Abaixo da meta de ' + ESCADA.metaAtual)
-        : 'Meta semanal · ' + ESCADA.metaAtual) +
+        : 'Meta semanal &middot; ' + ESCADA.metaAtual) +
       '</span>' +
     '</div>';
 
@@ -215,9 +244,12 @@
      Arranque
      ------------------------------------------------------------------------ */
 
-  const inicial = location.hash && document.querySelector(location.hash)
-    ? location.hash.slice(1)
-    : seccoes[0].id;
+  if (location.hash) {
+    const alvo = document.querySelector(location.hash);
+    if (alvo && alvo.classList.contains('sec')) {
+      requestAnimationFrame(() => alvo.scrollIntoView({ block: 'start' }));
+    }
+  }
 
-  abrir(inicial, false);
+  marcar();
 })();

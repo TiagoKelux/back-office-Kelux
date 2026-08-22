@@ -103,14 +103,6 @@ Tudo em `assets/js/dados.js`:
 
 ---
 
-## Privacidade
-
-Valores de comissão são informação pessoal. A tabela mostra **escalões**, não o
-que cada pessoa ganha. Entre comerciais, o único número visível é o **número de
-reuniões marcadas**.
-
----
-
 ## A seguir
 
 - Contas criadas manualmente pelo administrador, com permissões por perfil
