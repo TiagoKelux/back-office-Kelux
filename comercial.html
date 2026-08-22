@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080C16">
+<title>Comercial — Back office Kelux AI</title>
+<meta name="description" content="Área comercial do back office da Kelux AI: equipa, objetivo, comissões, organização, agentes e ranking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/kelux.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <div class="brand">
+      <span class="lamp lamp--on" aria-hidden="true"></span>
+      <span class="brand__mark">Kelux</span>
+      <span class="brand__sub">Comercial</span>
+    </div>
+    <div class="topbar__spacer"></div>
+    <a class="back" href="index.html">&larr; Áreas</a>
+  </div>
+</header>
+
+<nav class="secnav" aria-label="Secções da área comercial">
+  <div class="wrap secnav__in" id="secnav"></div>
+</nav>
+
+<main class="wrap">
+
+  <!-- =====================================================================
+       I — A EQUIPA
+       ===================================================================== -->
+  <section class="sec" id="sec-1" data-rn="I" data-nome="A equipa">
+    <div class="sec__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">I</span>
+        <span class="lbl">A equipa</span>
+      </div>
+      <h2>Cinco pessoas a marcar reuniões.</h2>
+      <p class="sec__lede">
+        A área comercial é isto: cinco pessoas, um objetivo comum por semana e
+        agentes a trabalhar por baixo. O resto do que se segue são as regras do jogo.
+      </p>
+    </div>
+
+    <div class="team" id="team"></div>
+
+    <div class="wip" style="margin-top:22px">
+      <span class="lamp" aria-hidden="true" style="margin-top:7px"></span>
+      <span>
+        As fotografias e as descrições entram depois. Ficam guardadas em
+        <span class="num" style="color:var(--txt-warm)">assets/img/</span> e ligadas em
+        <span class="num" style="color:var(--txt-warm)">assets/js/dados.js</span>.
+      </span>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       II — O OBJETIVO
+       ===================================================================== -->
+  <section class="sec" id="sec-2" data-rn="II" data-nome="O objetivo">
+    <div class="sec__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">II</span>
+        <span class="lbl">O objetivo</span>
+      </div>
+      <h2>Quinze reuniões por semana.</h2>
+      <p class="sec__lede">
+        A meta é da equipa toda, não de cada pessoa. Dá cerca de duas por pessoa por semana.
+        É um número que se mexe — sobe quando batemos, desce quando falhamos por muito.
+      </p>
+    </div>
+
+    <div class="claim">
+      <div class="claim__big">15 reuniões marcadas<br>por semana.</div>
+      <div class="claim__sub">Para a equipa toda. Cerca de duas por pessoa.</div>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">01</span>
+        <h3>Como se conta</h3>
+      </div>
+      <ul class="rules">
+        <li>Conta <strong>reunião marcada com data confirmada</strong>, não reunião realizada.</li>
+        <li>Conta na <strong>semana em que é marcada</strong>, não na semana em que acontece.</li>
+        <li>Cada lead conta <strong>uma vez</strong>. Remarcações não somam.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">02</span>
+        <h3>A escada</h3>
+        <span class="lbl" style="margin-left:auto">Ajusta-se sozinha</span>
+      </div>
+
+      <p class="mut" style="margin-bottom:6px">
+        Nove degraus. Começámos no segundo. Todos os domingos à noite o sistema olha para a
+        semana que passou e decide o degrau seguinte. A nova meta entra em vigor na segunda-feira.
+      </p>
+
+      <div class="stair" id="stair"></div>
+      <div class="stair__axis">
+        <span>Degrau mínimo · 10</span>
+        <span>Degrau máximo · 50</span>
+      </div>
+
+      <div class="grid-3" style="margin-top:30px">
+        <div class="outcome outcome--up">
+          <div class="outcome__arrow">&uarr;</div>
+          <div class="outcome__cond">reuniões &gt;= meta</div>
+          <div class="outcome__res">Sobe um degrau</div>
+        </div>
+        <div class="outcome outcome--keep">
+          <div class="outcome__arrow">&rarr;</div>
+          <div class="outcome__cond">entre 80% e 100% da meta</div>
+          <div class="outcome__res">Mantém-se</div>
+        </div>
+        <div class="outcome outcome--down">
+          <div class="outcome__arrow">&darr;</div>
+          <div class="outcome__cond">reuniões &lt; 80% da meta</div>
+          <div class="outcome__res">Desce um degrau</div>
+        </div>
+      </div>
+
+      <p class="mut" style="margin-top:26px">
+        Batemos, sobe. Falhamos por pouco, mantém-se. Falhamos por muito, desce.
+        <strong>É automático e ninguém gere nada à mão.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       III — COMISSÕES
+       ===================================================================== -->
+  <section class="sec" id="sec-3" data-rn="III" data-nome="Comissões">
+    <div class="sec__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">III</span>
+        <span class="lbl">Comissões</span>
+      </div>
+      <h2>Quinze por cento, doze meses.</h2>
+      <p class="sec__lede">
+        Uma regra principal e um conjunto de regras que tratam dos casos de fronteira.
+      </p>
+    </div>
+
+    <div class="claim">
+      <div class="claim__big">15% do valor da avença inicial,<br>todos os meses, durante 12 meses.</div>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">01</span>
+        <h3>Regras complementares</h3>
+      </div>
+      <ul class="rules rules--rn">
+        <li>Termina ao fim de <strong>12 meses</strong>. Aumentos posteriores da avença não contam.</li>
+        <li>Paga-se <strong>à medida que o cliente paga</strong>. Se o cliente sair antes, para.</li>
+        <li>Projetos <strong>one-shot</strong>: 15% do valor, conforme o cliente for pagando.</li>
+        <li>Quando são <strong>pessoas diferentes</strong> a trazer o contacto e a marcar a reunião, os 15% dividem-se: <strong>7,5% para cada</strong>.</li>
+        <li>Mesma pessoa nas duas coisas: <strong>15%</strong>.</li>
+        <li>Lead vinda de um <strong>agente</strong>: 15% para quem marcou a reunião.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">02</span>
+        <h3>Simulação</h3>
+        <span class="lbl" style="margin-left:auto">Escalões</span>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Avença fechada</th>
+              <th>Por mês</th>
+              <th>Total em 12 meses</th>
+            </tr>
+          </thead>
+          <tbody id="tbl-comissoes"></tbody>
+        </table>
+      </div>
+
+      <div class="privacy">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span>
+          Valores de comissão são informação pessoal. Esta tabela mostra <strong>escalões</strong>,
+          não mostra o que cada pessoa ganha. Entre comerciais, o único número visível é o
+          <strong>número de reuniões marcadas</strong>.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       IV — ORGANIZAÇÃO
+       ===================================================================== -->
+  <section class="sec" id="sec-4" data-rn="IV" data-nome="Organização">
+    <div class="sec__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">IV</span>
+        <span class="lbl">Organização</span>
+      </div>
+      <h2>Uma proposta de organização.</h2>
+      <p class="sec__lede">
+        O que se segue é uma proposta, não uma regra fechada. Está aqui para ser discutida
+        na reunião e vai ser melhorada com o feedback da equipa.
+      </p>
+    </div>
+
+    <div class="wip">
+      <span class="lamp" aria-hidden="true" style="margin-top:7px"></span>
+      <span>
+        Em aberto: nomes dos estados, prazo de libertação das leads, campos obrigatórios
+        e a fronteira exata entre lead pessoal e lead de equipa. Tragam objeções.
+      </span>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">01</span>
+        <h3>Estados da lead</h3>
+      </div>
+
+      <div class="pipe">
+        <div class="pipe__stage"><span class="pipe__n">I</span><span class="pipe__name">Nova</span></div>
+        <div class="pipe__stage"><span class="pipe__n">II</span><span class="pipe__name">Contactada</span></div>
+        <div class="pipe__stage pipe__stage--end"><span class="pipe__n">III</span><span class="pipe__name">Reunião marcada</span></div>
+        <div class="pipe__stage"><span class="pipe__n">IV</span><span class="pipe__name">Proposta enviada</span></div>
+        <div class="pipe__stage"><span class="pipe__n">V</span><span class="pipe__name">Ganha / Perdida</span></div>
+      </div>
+
+      <p class="mut" style="margin-top:20px">
+        <strong>O pipeline de leads acaba na reunião agendada.</strong> É esse o trabalho da área comercial.
+        O que acontece a seguir depende do resultado:
+      </p>
+
+      <div class="fork">
+        <div class="fork__item fork__item--won">
+          <div class="fork__head">Se adjudicar</div>
+          <p class="fork__body">
+            A lead sai das leads e passa para <strong>Clientes e Projetos</strong>.
+            Deixa de ser trabalho comercial.
+          </p>
+        </div>
+        <div class="fork__item fork__item--cold">
+          <div class="fork__head">Se houve reunião e não adjudicou</div>
+          <p class="fork__body">
+            A lead passa para a <strong>fila fria</strong>, para ser trabalhada pelos agentes.
+            Não se perde, arrefece.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">02</span>
+        <h3>Dois tipos de lead</h3>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="lbl lbl--luz">Leads de equipa</span>
+          <h4 style="margin:12px 0 10px">Da base geral</h4>
+          <p class="mut" style="font-size:14.4px">
+            Mistura de leads quentes trazidas por pessoas e leads angariadas pelos agentes.
+            Estão disponíveis para quem as quiser pegar.
+          </p>
+        </div>
+        <div class="card">
+          <span class="lbl lbl--luz">Leads pessoais</span>
+          <h4 style="margin:12px 0 10px">Contactos diretos de cada um</h4>
+          <p class="mut" style="font-size:14.4px">
+            Não vão para a base geral. Em cada uma, o comercial escolhe se a trata pessoalmente
+            ou se põe um agente a geri-la. <strong>A lead continua dele e a comissão também.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">03</span>
+        <h3>Ficha de lead</h3>
+        <span class="demo" style="margin-left:auto">Exemplo</span>
+      </div>
+
+      <div class="ficha">
+        <div class="ficha__bar">
+          <span class="lamp lamp--on" aria-hidden="true"></span>
+          <span class="lbl">Ficha · exemplo visual dos campos</span>
+        </div>
+        <div class="ficha__grid" id="ficha-campos"></div>
+        <div class="ficha__grid" id="ficha-auto"></div>
+        <div class="auto-note">
+          <span class="lamp lamp--on" aria-hidden="true"></span>
+          <span>Calculados automaticamente a partir do histórico de interações</span>
+        </div>
+        <div class="ficha__bar" style="border-top:1px solid var(--line-soft)">
+          <span class="lbl">Histórico de interações</span>
+        </div>
+        <div id="ficha-hist"></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">04</span>
+        <h3>Avisos de duplicado</h3>
+      </div>
+
+      <div class="grid-2">
+        <div class="alert alert--warn">
+          <div class="alert__top">
+            <span class="alert__dot" aria-hidden="true"></span>
+            <span class="alert__tag">Amarelo · avisa</span>
+          </div>
+          <p class="alert__body">
+            A empresa já está registada por um colega ou já existe na base geral.
+            <strong>Só avisa, deixa registar.</strong>
+          </p>
+        </div>
+
+        <div class="alert alert--stop">
+          <div class="alert__top">
+            <span class="alert__dot" aria-hidden="true"></span>
+            <span class="alert__tag">Vermelho · bloqueia</span>
+          </div>
+          <p class="alert__body">
+            É a mesma pessoa ou o mesmo departamento — cruzamento por nome, telefone e email —
+            e essa lead já foi contactada. <strong>Bloqueia o registo.</strong>
+          </p>
+        </div>
+
+        <div class="alert alert--ok">
+          <div class="alert__top">
+            <span class="alert__dot" aria-hidden="true"></span>
+            <span class="alert__tag">Registada, ainda sem contacto</span>
+          </div>
+          <p class="alert__body">
+            O utilizador é informado de quem a tem, mas <strong>pode registar na mesma</strong>.
+          </p>
+        </div>
+
+        <div class="alert alert--ok">
+          <div class="alert__top">
+            <span class="alert__dot" aria-hidden="true"></span>
+            <span class="alert__tag">O que o aviso mostra</span>
+          </div>
+          <p class="alert__body">
+            Apenas o <strong>nome da empresa</strong> e <strong>de quem a tem</strong>.
+            <em>Nunca os detalhes de uma lead da área pessoal de outra pessoa.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">05</span>
+        <h3>Propriedade</h3>
+      </div>
+      <ul class="rules">
+        <li>Qualquer pessoa pode pegar numa lead da base.</li>
+        <li>Se ficar <strong>duas semanas sem registos de interação</strong>, a lead liberta-se e volta ao conjunto.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       V — AGENTES E A FILA FRIA
+       ===================================================================== -->
+  <section class="sec" id="sec-5" data-rn="V" data-nome="Agentes e a fila fria">
+    <div class="sec__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">V</span>
+        <span class="lbl">Agentes e a fila fria</span>
+      </div>
+      <h2>Os agentes fazem o volume.</h2>
+      <p class="sec__lede">
+        Os agentes procuram contactos, trabalham as leads frias e marcam reuniões.
+        As pessoas entram onde é preciso uma pessoa.
+      </p>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">01</span>
+        <h3>Que sinais procuram</h3>
+      </div>
+
+      <div class="grid-3">
+        <div class="signal">
+          <span class="signal__n">I</span>
+          <div class="signal__t">Invisíveis</div>
+          <p class="signal__b">Empresas que não aparecem nas pesquisas. Sem SEO, sem GEO.</p>
+        </div>
+        <div class="signal">
+          <span class="signal__n">II</span>
+          <div class="signal__t">Sites antigos</div>
+          <p class="signal__b">Código antigo ou pouco cuidado. Sinal de que ninguém olha para aquilo há anos.</p>
+        </div>
+        <div class="signal">
+          <span class="signal__n">III</span>
+          <div class="signal__t">Processos manuais</div>
+          <p class="signal__b">Empresas sem CRM ou a tratar tudo à mão.</p>
+        </div>
+      </div>
+
+      <p class="mut" style="margin-top:20px">
+        O alvo típico são <strong>decisores de PME</strong> — CEOs, administradores,
+        responsáveis de marketing.
+      </p>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">02</span>
+        <h3>Quando passa a lead a uma pessoa</h3>
+      </div>
+      <ul class="rules">
+        <li>O agente <strong>avança até à reunião</strong> sempre que consegue.</li>
+        <li>Só passa a lead a uma pessoa quando encontra <strong>resistência mas a porta continua aberta</strong>.</li>
+        <li><strong>Leads mortas não passam.</strong></li>
+        <li>Quando passa, leva o <strong>motivo</strong> e um <strong>resumo do que interessa</strong>.</li>
+        <li>Uma lead que uma pessoa não esteja a conseguir avançar pode <strong>descer para os agentes</strong>, para nutrição.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="block__title">
+        <span class="rn">03</span>
+        <h3>A lead circula</h3>
+      </div>
+
+      <div class="flow">
+        <span class="flow__node">Agentes</span>
+        <span class="flow__arrow">&rarr;</span>
+        <span class="flow__node flow__node--luz">Pessoa</span>
+        <span class="flow__arrow">&rarr;</span>
+        <span class="flow__node flow__node--luz">Reunião</span>
+        <span class="flow__arrow" style="margin-left:8px">&crarr;</span>
+        <span class="flow__node">Fila fria</span>
+        <span class="flow__arrow">&rarr;</span>
+        <span class="flow__node">Agentes</span>
+      </div>
+
+      <p class="mut" style="margin-top:22px">
+        Os agentes fazem o volume, as pessoas tratam a qualidade, e a
+        <strong>lead circula entre os dois conforme merece</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       VI — RANKING
+       ===================================================================== -->
+  <section class="sec" id="sec-6" data-rn="VI" data-nome="Ranking">
+    <div class="sec__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">VI</span>
+        <span class="lbl">Ranking</span>
+      </div>
+      <h2>Reuniões marcadas.</h2>
+      <p class="sec__lede">
+        O único número visível entre comerciais. Ao lado, a taxa de no-show — porque marcar
+        muitas reuniões que ninguém aparece não é marcar reuniões.
+      </p>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="views" role="group" aria-label="Período">
+      <button class="views__b" data-vista="semana" aria-pressed="true">Semana</button>
+      <button class="views__b" data-vista="mes" aria-pressed="false">Mês</button>
+      <button class="views__b" data-vista="ano" aria-pressed="false">Ano</button>
+    </div>
+
+    <div class="chart" id="chart"></div>
+
+    <div style="margin-top:20px">
+      <span class="demo">Dados de exemplo</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>Kelux AI · Back office interno</span>
+    <span>Versão de apresentação · dados de exemplo</span>
+  </div>
+</footer>
+
+<script src="assets/js/dados.js"></script>
+<script src="assets/js/comercial.js"></script>
+</body>
+</html>
