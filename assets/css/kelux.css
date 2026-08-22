@@ -457,11 +457,55 @@ a.area:hover .area__name{ color:var(--luz-core); }
   text-shadow:0 0 70px rgba(227,183,120,.28);
 }
 
-.mega__pc{ font-size:.52em; margin-left:.02em; }
-
-.mega--sm .mega__n{ font-size:clamp(78px,12vw,150px); }
-
 .mega__side{ padding-bottom:6px; }
+
+/* --------------------------------------------------------------------------
+   A regra — um valor com unidade, composto em painel.
+   O % em Bodoni é largo de mais para o tamanho do mega, por isso este
+   tratamento é mais contido e deixa o algarismo respirar.
+   -------------------------------------------------------------------------- */
+
+.regra{
+  display:flex; align-items:center; gap:clamp(24px,4vw,52px);
+  flex-wrap:wrap;
+  padding:clamp(28px,4vw,44px) clamp(26px,4vw,48px);
+  border:1px solid var(--line);
+  background:rgba(227,183,120,.035);
+}
+
+.regra__v{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(72px,10vw,138px);
+  line-height:.9;
+  letter-spacing:-.02em;
+  color:var(--luz-core);
+  flex:none;
+}
+
+.regra__pc{
+  font-size:.34em;
+  color:var(--gold-deep);
+  margin-left:.1em;
+  letter-spacing:0;
+}
+
+.regra__txt{ min-width:0; }
+
+.regra__p{
+  margin:0;
+  font-family:var(--display);
+  font-size:clamp(21px,2.6vw,31px);
+  line-height:1.28;
+  color:var(--txt-warm);
+}
+.regra__p strong{ color:var(--luz-core); font-weight:500; }
+
+.regra__s{
+  margin:14px 0 0;
+  font-family:var(--mono); font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--gold-deep);
+}
 
 .mega__u{
   font-family:var(--display);
@@ -510,8 +554,12 @@ a.area:hover .area__name{ color:var(--luz-core); }
   margin-bottom:14px;
   white-space:nowrap;
 }
-.tile__big-s{ font-size:.58em; }
-.tile__mais{ color:var(--gold-deep); font-size:.55em; margin:0 .06em; }
+.tile__big-s{ font-size:.5em; color:var(--gold-deep); margin-left:.04em; }
+.tile__cada{
+  font-family:var(--mono); font-size:.22em; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--mut);
+  margin-left:.5em; vertical-align:.6em;
+}
 .tile__t{
   font-family:var(--display); font-size:clamp(19px,2.2vw,24px);
   line-height:1.24; color:var(--txt-warm);
@@ -653,7 +701,17 @@ table.tbl td{
 }
 table.tbl tr:last-child td{ border-bottom:0; }
 table.tbl tbody tr:hover td{ background:rgba(227,183,120,.035); }
-table.tbl td:last-child{ color:var(--luz); }
+
+/* A primeira coluna é o que se fecha; a última é o que se leva */
+table.tbl td:first-child{ color:var(--txt-warm); }
+table.tbl td:nth-child(2){ color:var(--mut); }
+table.tbl td:last-child{
+  color:var(--luz);
+  font-size:16.5px;
+  box-shadow:inset 1px 0 0 var(--line);
+}
+table.tbl th:last-child{ color:var(--gold-deep); box-shadow:inset 1px 0 0 var(--line); }
+
 table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right; }
 
 /* --------------------------------------------------------------------------
@@ -679,18 +737,82 @@ table.tbl th:not(:first-child), table.tbl td:not(:first-child){ text-align:right
 
 .pipe__stage--end{ border-color:rgba(227,183,120,.32); background:rgba(227,183,120,.05); }
 
-.fork{ display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:16px; margin-top:16px; }
+/* --------------------------------------------------------------------------
+   O mapa — percurso da lead e articulação entre agentes e pessoas
+   -------------------------------------------------------------------------- */
 
-.fork__item{
+.mapa-wrap{
+  overflow-x:auto;
   border:1px solid var(--line-soft);
-  border-top:2px solid var(--line-cold);
-  padding:20px;
   background:var(--ink-2);
+  padding:clamp(14px,2vw,26px);
+  scrollbar-width:thin;
 }
-.fork__item--won{ border-top-color:var(--verde); }
-.fork__item--cold{ border-top-color:var(--pedra); }
-.fork__head{ font-family:var(--display); font-size:18px; color:var(--txt-warm); margin-bottom:9px; }
-.fork__body{ font-size:14px; color:var(--mut); line-height:1.6; }
+
+.mapa{ display:block; width:100%; min-width:860px; height:auto; }
+
+/* Nós */
+.mapa__no rect{
+  fill:var(--ink);
+  stroke:var(--line-cold);
+  stroke-width:1;
+}
+.mapa__no--base rect{ stroke:var(--gold-deep); }
+.mapa__no--luz  rect{ stroke:var(--luz); }
+.mapa__no--fim  rect{ stroke:var(--gold); fill:rgba(227,183,120,.06); }
+.mapa__no--morta rect{ stroke:var(--vermelho); stroke-dasharray:3 3; }
+
+.mapa__t{
+  font-family:var(--display); font-size:17px;
+  fill:var(--txt-warm); text-anchor:middle;
+}
+.mapa__s{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.14em;
+  text-transform:uppercase; fill:var(--mut); text-anchor:middle;
+}
+
+/* Ligações */
+.mapa__e{
+  fill:none;
+  stroke:var(--gold-deep);
+  stroke-width:1.2;
+}
+.mapa__e--volta{ stroke:var(--pedra); stroke-dasharray:5 4; }
+
+#pta-gold path{ fill:var(--gold-deep); }
+#pta-cinza path{ fill:var(--pedra); }
+
+/* Etiquetas das ligações */
+.mapa__lab{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+  text-transform:uppercase; fill:var(--mut); text-anchor:middle;
+}
+.mapa__lab--luz{ fill:var(--gold-deep); }
+
+/* Legenda */
+.mapa__leg{
+  display:flex; flex-wrap:wrap; gap:20px;
+  margin-top:16px;
+}
+.mapa__legItem{
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--mut);
+}
+.mapa__legItem::before{
+  content:""; width:26px; height:0; flex:none;
+  border-top:1.5px solid var(--pedra);
+}
+.mapa__legItem--cheia::before{ border-top-style:solid; border-top-color:var(--gold-deep); }
+.mapa__legItem--volta::before{ border-top-style:dashed; }
+
+.ff__nota{
+  margin:18px 0 0; padding-top:16px;
+  border-top:1px solid var(--line-soft);
+  font-size:13.8px; line-height:1.6; color:var(--mut);
+  max-width:none;
+}
+.ff__nota strong{ color:var(--txt-warm); }
 
 /* Ficha de lead — exemplo visual */
 .ficha{

@@ -144,17 +144,16 @@
         <span class="rn">III</span>
         <span class="lbl">Comissões</span>
       </div>
+      <h2>Quinze por cento,<br>durante doze meses.</h2>
     </div>
 
-    <div class="mega">
-      <div class="mega__n">15<span class="mega__pc">%</span></div>
-      <div class="mega__side">
-        <div class="mega__u">da avença inicial,<br>todos os meses</div>
-        <div class="mega__hint">Durante 12 meses</div>
+    <div class="regra">
+      <div class="regra__v">15<span class="regra__pc">%</span></div>
+      <div class="regra__txt">
+        <p class="regra__p">da <strong>avença inicial</strong>, todos os meses.</p>
+        <p class="regra__s">Paga-se à medida que o cliente paga</p>
       </div>
     </div>
-
-    <p class="mega__claim">Paga-se à medida que o cliente paga.</p>
 
     <div class="block">
       <div class="block__title">
@@ -171,7 +170,7 @@
         </div>
         <div class="tile">
           <span class="tile__n">II</span>
-          <div class="tile__big">7,5<span class="tile__big-s">%</span> <span class="tile__mais">+</span> 7,5<span class="tile__big-s">%</span></div>
+          <div class="tile__big">7,5<span class="tile__big-s">%</span> <span class="tile__cada">cada</span></div>
           <div class="tile__t">Um traz,<br>outro marca</div>
           <div class="tile__s">divide-se pelos dois</div>
         </div>
@@ -222,7 +221,7 @@
           <thead>
             <tr>
               <th>Avença fechada</th>
-              <th>Por mês</th>
+              <th>15% por mês</th>
               <th>Total em 12 meses</th>
             </tr>
           </thead>
@@ -248,44 +247,144 @@
     </div>
 
     <div class="block">
-      <div class="pipe">
-        <div class="pipe__stage"><span class="pipe__n">I</span><span class="pipe__name">Nova</span></div>
-        <div class="pipe__stage"><span class="pipe__n">II</span><span class="pipe__name">Contactada</span></div>
-        <div class="pipe__stage pipe__stage--end"><span class="pipe__n">III</span><span class="pipe__name">Reunião marcada</span></div>
-        <div class="pipe__stage"><span class="pipe__n">IV</span><span class="pipe__name">Proposta enviada</span></div>
-        <div class="pipe__stage"><span class="pipe__n">V</span><span class="pipe__name">Ganha / Perdida</span></div>
-      </div>
-
-      <div class="fork">
-        <div class="fork__item fork__item--won">
-          <div class="fork__head">Adjudicou</div>
-          <p class="fork__body">Sai das leads. Passa para <strong>Clientes e Projetos</strong>.</p>
-        </div>
-        <div class="fork__item fork__item--cold">
-          <div class="fork__head">Houve reunião, não adjudicou</div>
-          <p class="fork__body">Vai para a <strong>fila fria</strong>. Não se perde, arrefece.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="block">
       <div class="block__title">
         <span class="rn">I</span>
-        <h3>Dois tipos de lead</h3>
+        <h3>O mapa</h3>
+        <span class="lbl" style="margin-left:auto">Agentes e pessoas</span>
       </div>
 
-      <div class="tiles">
-        <div class="tile">
-          <span class="tile__n">I</span>
-          <div class="tile__t">Leads<br>de equipa</div>
-          <div class="tile__s">base geral &middot; pessoas e agentes</div>
-        </div>
-        <div class="tile">
-          <span class="tile__n">II</span>
-          <div class="tile__t">Leads<br>pessoais</div>
-          <div class="tile__s">não vão para a base &middot; a comissão é de quem a tem</div>
-        </div>
+      <div class="mapa-wrap">
+        <svg class="mapa" viewBox="0 0 1100 700" role="img"
+             aria-label="Mapa do percurso da lead: o agente angaria e a pessoa traz contactos; as leads de equipa entram na base geral e as pessoais ficam com quem as trouxe; agente e pessoa trabalham a lead e trocam-na entre si; quem converte chega à reunião marcada e daí à base de clientes se adjudicar, ou à fila fria se não adjudicar, voltando aos agentes; o que o agente não converte morre.">
+
+          <defs>
+            <marker id="pta-gold" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,1 L9,5 L0,9 z"/>
+            </marker>
+            <marker id="pta-cinza" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,1 L9,5 L0,9 z"/>
+            </marker>
+          </defs>
+
+          <!-- ===== Ligações ===== -->
+
+          <!-- origem para a base -->
+          <path class="mapa__e" d="M175,112 V150 H490 V172" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M955,112 V172" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M895,112 V150 H610 V172" marker-end="url(#pta-gold)"/>
+
+          <!-- da base para quem a trabalha -->
+          <path class="mapa__e" d="M490,234 V264 H175 V294" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab" x="330" y="258">um agente pega</text>
+          <path class="mapa__e" d="M610,234 V264 H895 V294" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab" x="757" y="258">uma pessoa pega</text>
+
+          <!-- a lead pessoal desce para a pessoa -->
+          <path class="mapa__e" d="M955,234 V294" marker-end="url(#pta-gold)"/>
+
+          <!-- o agente devolve à base quando precisa de ajuda a fechar -->
+          <path class="mapa__e" d="M60,312 H24 V205 H431" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab mapa__lab--luz" x="215" y="197">precisa de ajuda a fechar</text>
+
+          <!-- a pessoa desce a lead parada para os agentes -->
+          <path class="mapa__e mapa__e--volta" d="M806,327 H294" marker-end="url(#pta-cinza)"/>
+          <text class="mapa__lab" x="550" y="318">lead parada &middot; nutrição</text>
+
+          <!-- desfechos do trabalho -->
+          <path class="mapa__e" d="M220,356 V392 H490 V416" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab" x="330" y="384">converte</text>
+          <path class="mapa__e" d="M880,356 V392 H610 V416" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab" x="757" y="384">converte</text>
+          <path class="mapa__e mapa__e--volta" d="M175,356 V416" marker-end="url(#pta-cinza)"/>
+
+          <!-- da reunião ao destino -->
+          <path class="mapa__e" d="M490,478 V520 H340 V556" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab mapa__lab--luz" x="396" y="514">adjudicou</text>
+          <path class="mapa__e" d="M610,478 V520 H760 V556" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab" x="686" y="514">não adjudicou</text>
+
+          <!-- a fila fria volta aos agentes -->
+          <path class="mapa__e mapa__e--volta" d="M760,618 V660 H44 V341 H56" marker-end="url(#pta-cinza)"/>
+          <text class="mapa__lab" x="420" y="650">volta aos agentes, para nutrição</text>
+
+          <!-- ===== Nós ===== -->
+
+          <g class="mapa__no">
+            <rect x="60" y="54" width="230" height="58"/>
+            <text class="mapa__t" x="175" y="80">Agente angaria</text>
+            <text class="mapa__s" x="175" y="98">prospeção por sinais</text>
+          </g>
+
+          <g class="mapa__no">
+            <rect x="810" y="54" width="230" height="58"/>
+            <text class="mapa__t" x="925" y="80">Pessoa traz contacto</text>
+            <text class="mapa__s" x="925" y="98">rede própria</text>
+          </g>
+
+          <g class="mapa__no mapa__no--base">
+            <rect x="435" y="176" width="230" height="58"/>
+            <text class="mapa__t" x="550" y="202">BD geral</text>
+            <text class="mapa__s" x="550" y="220">leads de equipa</text>
+          </g>
+
+          <g class="mapa__no mapa__no--luz">
+            <rect x="810" y="176" width="230" height="58"/>
+            <text class="mapa__t" x="925" y="202">Lead pessoal</text>
+            <text class="mapa__s" x="925" y="220">fica com quem a trouxe</text>
+          </g>
+
+          <g class="mapa__no">
+            <rect x="60" y="298" width="230" height="58"/>
+            <text class="mapa__t" x="175" y="324">Agente trabalha</text>
+            <text class="mapa__s" x="175" y="342">contacta e avança</text>
+          </g>
+
+          <g class="mapa__no">
+            <rect x="810" y="298" width="230" height="58"/>
+            <text class="mapa__t" x="925" y="324">Pessoa trabalha</text>
+            <text class="mapa__s" x="925" y="342">contacta e fecha</text>
+          </g>
+
+          <g class="mapa__no mapa__no--fim">
+            <rect x="435" y="420" width="230" height="58"/>
+            <text class="mapa__t" x="550" y="446">Reunião marcada</text>
+            <text class="mapa__s" x="550" y="464">fim do trabalho comercial</text>
+          </g>
+
+          <g class="mapa__no mapa__no--morta">
+            <rect x="60" y="420" width="230" height="58"/>
+            <text class="mapa__t" x="175" y="446">Lead morta</text>
+            <text class="mapa__s" x="175" y="464">não converte &middot; não passa</text>
+          </g>
+
+          <g class="mapa__no mapa__no--fim">
+            <rect x="225" y="560" width="230" height="58"/>
+            <text class="mapa__t" x="340" y="586">Base de clientes</text>
+            <text class="mapa__s" x="340" y="604">Clientes e Projetos</text>
+          </g>
+
+          <g class="mapa__no">
+            <rect x="645" y="560" width="230" height="58"/>
+            <text class="mapa__t" x="760" y="586">Fila fria</text>
+            <text class="mapa__s" x="760" y="604">arrefece, não se perde</text>
+          </g>
+
+        </svg>
       </div>
+
+      <div class="mapa__leg">
+        <span class="mapa__legItem mapa__legItem--cheia">percurso da lead</span>
+        <span class="mapa__legItem mapa__legItem--volta">retorno e nutrição</span>
+      </div>
+
+      <p class="ff__nota">
+        Na lead pessoal é o comercial que escolhe: trata-a ele ou põe um agente a geri-la.
+        <strong>A lead continua dele e a comissão também.</strong>
+        O agente só devolve uma lead quando encontra resistência mas a porta continua aberta,
+        e devolve-a com o motivo e um resumo. <strong>Leads mortas não passam.</strong>
+      </p>
     </div>
 
     <div class="block">
