@@ -5,16 +5,16 @@
    Tudo neste ficheiro é fictício e serve apenas para a versão de apresentação.
    Quando existir backend, isto é substituído por dados reais.
 
-   Para colocar as fotos da equipa: guardar os ficheiros em assets/img/
-   e preencher o campo "foto" de cada pessoa (ex.: "assets/img/marly.jpg").
+   As fotos da equipa estão em assets/img/, já recortadas em quadrado e
+   centradas na cara. Para trocar uma, substituir o ficheiro pelo mesmo nome.
    ========================================================================== */
 
 const EQUIPA = [
-  { id:'marly',   nome:'Marly',   foto:null, linha:'Descrição por definir.' },
-  { id:'ruben',   nome:'Rúben',   foto:null, linha:'Descrição por definir.' },
-  { id:'ze',      nome:'Zé',      foto:null, linha:'Descrição por definir.' },
-  { id:'tiago',   nome:'Tiago',   foto:null, linha:'Descrição por definir.' },
-  { id:'ricardo', nome:'Ricardo', foto:null, linha:'Descrição por definir.' }
+  { id:'marly',   nome:'Marly',   foto:'assets/img/marly.png', linha:'Primeiro contacto. Abre portas.' },
+  { id:'ruben',   nome:'Rúben',   foto:'assets/img/ruben.png', linha:'Leva a conversa até à reunião.' },
+  { id:'ze',      nome:'Zé',      foto:'assets/img/ze.png', linha:'Não larga uma lead a meio.' },
+  { id:'tiago',   nome:'Tiago',   foto:'assets/img/tiago.png', linha:'Prefere o telefone ao email.' },
+  { id:'ricardo', nome:'Ricardo', foto:'assets/img/ricardo.png', linha:'Faz as perguntas difíceis cedo.' }
 ];
 
 /* A escada de metas — ajusta-se sozinha todos os domingos à noite */

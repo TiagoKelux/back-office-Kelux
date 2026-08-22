@@ -77,17 +77,16 @@ Alinhada com kelux.ai:
 
 ---
 
-## Colocar as fotografias da equipa
+## Fotografias da equipa
 
-1. Guardar os ficheiros em `assets/img/` (quadrados, ex.: 400×400).
-2. Preencher o campo `foto` de cada pessoa em `assets/js/dados.js`:
+As cinco fotos estão em `assets/img/`, já recortadas em quadrado e centradas
+na cara, para o enquadramento circular não cortar ninguém.
 
-```js
-{ id:'marly', nome:'Marly', foto:'assets/img/marly.jpg', linha:'...' }
-```
+Para trocar uma, substituir o ficheiro pelo mesmo nome. Se a nova foto não
+estiver centrada na cara, recortar em quadrado antes de a colocar.
 
-Sem foto, aparece a inicial iluminada. As fotos entram nos cards da equipa e
-nas barras do ranking.
+Sem foto (campo `foto: null` em `assets/js/dados.js`), aparece a inicial
+iluminada. As fotos entram nos cards da equipa e nas barras do ranking.
 
 ---
 

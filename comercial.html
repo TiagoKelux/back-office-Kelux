@@ -50,13 +50,9 @@
 
     <div class="team" id="team"></div>
 
-    <div class="wip" style="margin-top:22px">
-      <span class="lamp" aria-hidden="true" style="margin-top:7px"></span>
-      <span>
-        As fotografias e as descrições entram depois. Ficam guardadas em
-        <span class="num" style="color:var(--txt-warm)">assets/img/</span> e ligadas em
-        <span class="num" style="color:var(--txt-warm)">assets/js/dados.js</span>.
-      </span>
+    <div class="pergunta">
+      <span class="lamp lamp--on" aria-hidden="true"></span>
+      <p class="pergunta__t">Antes de começar &mdash;<br>toda a gente sabe o que fazemos aqui, certo?</p>
     </div>
   </section>
 
@@ -70,70 +66,75 @@
         <span class="rn">II</span>
         <span class="lbl">O objetivo</span>
       </div>
-      <h2>Quinze reuniões por semana.</h2>
-      <p class="sec__lede">
-        A meta é da equipa toda, não de cada pessoa. Dá cerca de duas por pessoa por semana.
-        É um número que se mexe — sobe quando batemos, desce quando falhamos por muito.
-      </p>
+      <h2>A meta da semana.</h2>
     </div>
 
-    <div class="claim">
-      <div class="claim__big">15 reuniões marcadas<br>por semana.</div>
-      <div class="claim__sub">Para a equipa toda. Cerca de duas por pessoa.</div>
+    <div class="mega">
+      <div class="mega__n">15</div>
+      <div class="mega__side">
+        <div class="mega__u">reuniões marcadas<br>por semana</div>
+        <div class="mega__hint">Equipa toda &middot; &asymp; 2 por pessoa</div>
+      </div>
     </div>
+
+    <p class="mega__claim">Acreditamos em começar pequeno.</p>
 
     <div class="block">
       <div class="block__title">
-        <span class="rn">01</span>
+        <span class="rn">I</span>
         <h3>Como se conta</h3>
       </div>
-      <ul class="rules">
-        <li>Conta <strong>reunião marcada com data confirmada</strong>, não reunião realizada.</li>
-        <li>Conta na <strong>semana em que é marcada</strong>, não na semana em que acontece.</li>
-        <li>Cada lead conta <strong>uma vez</strong>. Remarcações não somam.</li>
-      </ul>
+
+      <div class="tiles">
+        <div class="tile">
+          <span class="tile__n">I</span>
+          <div class="tile__t">Marcada,<br>não realizada</div>
+          <div class="tile__s">com data confirmada</div>
+        </div>
+        <div class="tile">
+          <span class="tile__n">II</span>
+          <div class="tile__t">Conta na semana<br>em que se marca</div>
+          <div class="tile__s">não na que acontece</div>
+        </div>
+        <div class="tile">
+          <span class="tile__n">III</span>
+          <div class="tile__t">Uma vez<br>por lead</div>
+          <div class="tile__s">remarcações não somam</div>
+        </div>
+      </div>
     </div>
 
     <div class="block">
       <div class="block__title">
-        <span class="rn">02</span>
+        <span class="rn">II</span>
         <h3>A escada</h3>
         <span class="lbl" style="margin-left:auto">Ajusta-se sozinha</span>
       </div>
 
-      <p class="mut" style="margin-bottom:6px">
-        Nove degraus. Começámos no segundo. Todos os domingos à noite o sistema olha para a
-        semana que passou e decide o degrau seguinte. A nova meta entra em vigor na segunda-feira.
-      </p>
-
       <div class="stair" id="stair"></div>
       <div class="stair__axis">
-        <span>Degrau mínimo · 10</span>
-        <span>Degrau máximo · 50</span>
+        <span>Mínimo &middot; 10</span>
+        <span>Domingo à noite &rarr; nova meta na segunda</span>
+        <span>Máximo &middot; 50</span>
       </div>
 
-      <div class="grid-3" style="margin-top:30px">
+      <div class="grid-3" style="margin-top:34px">
         <div class="outcome outcome--up">
           <div class="outcome__arrow">&uarr;</div>
-          <div class="outcome__cond">reuniões &gt;= meta</div>
-          <div class="outcome__res">Sobe um degrau</div>
+          <div class="outcome__cond">&ge; meta</div>
+          <div class="outcome__res">Sobe</div>
         </div>
         <div class="outcome outcome--keep">
           <div class="outcome__arrow">&rarr;</div>
-          <div class="outcome__cond">entre 80% e 100% da meta</div>
-          <div class="outcome__res">Mantém-se</div>
+          <div class="outcome__cond">80% a 100%</div>
+          <div class="outcome__res">Mantém</div>
         </div>
         <div class="outcome outcome--down">
           <div class="outcome__arrow">&darr;</div>
-          <div class="outcome__cond">reuniões &lt; 80% da meta</div>
-          <div class="outcome__res">Desce um degrau</div>
+          <div class="outcome__cond">&lt; 80%</div>
+          <div class="outcome__res">Desce</div>
         </div>
       </div>
-
-      <p class="mut" style="margin-top:26px">
-        Batemos, sobe. Falhamos por pouco, mantém-se. Falhamos por muito, desce.
-        <strong>É automático e ninguém gere nada à mão.</strong>
-      </p>
     </div>
   </section>
 
