@@ -25,7 +25,7 @@
   </div>
 </header>
 
-<nav class="secnav" aria-label="Secções da área comercial">
+<nav class="secnav" aria-label="Mapa do percurso da lead: o agente angaria e as pessoas trazem contactos, que entram na BD geral ou ficam como lead pessoal; agente e pessoa trabalham a lead e passam-na entre si, o agente entrega diretamente à pessoa quando encontra resistência mas a porta continua aberta, e a pessoa devolve ao agente a lead parada; a lead pessoal pode ser delegada num agente sem deixar de ser de quem a trouxe; quem converte chega à reunião marcada, depois à reunião realizada, e daí à base de clientes se adjudicar ou à fila fria se não adjudicar, voltando aos agentes; o que não converte fica como lead morta.">
   <div class="wrap secnav__in" id="secnav"></div>
 </nav>
 
@@ -254,8 +254,8 @@
       </div>
 
       <div class="mapa-wrap">
-        <svg class="mapa" viewBox="0 0 1100 700" role="img"
-             aria-label="Mapa do percurso da lead: o agente angaria e a pessoa traz contactos; as leads de equipa entram na base geral e as pessoais ficam com quem as trouxe; agente e pessoa trabalham a lead e trocam-na entre si; quem converte chega à reunião marcada e daí à base de clientes se adjudicar, ou à fila fria se não adjudicar, voltando aos agentes; o que o agente não converte morre.">
+        <svg class="mapa" viewBox="0 0 1000 700" role="img"
+             aria-label="Percurso da lead: o agente angaria e as pessoas trazem contactos; as leads de equipa entram na BD geral e as pessoais ficam de parte; agente e pessoa trabalham a lead e passam-na entre si; daí sai a reunião marcada, depois a reunião realizada, e por fim a base de clientes se o cliente adjudicar ou a fila fria se não adjudicar.">
 
           <defs>
             <marker id="pta-gold" viewBox="0 0 10 10" refX="9" refY="5"
@@ -270,105 +270,95 @@
 
           <!-- ===== Ligações ===== -->
 
-          <!-- origem para a base -->
-          <path class="mapa__e" d="M175,112 V150 H490 V172" marker-end="url(#pta-gold)"/>
-          <path class="mapa__e" d="M955,112 V172" marker-end="url(#pta-gold)"/>
-          <path class="mapa__e" d="M895,112 V150 H610 V172" marker-end="url(#pta-gold)"/>
+          <!-- de onde vem -->
+          <path class="mapa__e" d="M230,98 V128 H460 V152" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M730,98 V128 H540 V152" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M810,98 V152" marker-end="url(#pta-gold)"/>
 
-          <!-- da base para quem a trabalha -->
-          <path class="mapa__e" d="M490,234 V264 H175 V294" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab" x="330" y="258">um agente pega</text>
-          <path class="mapa__e" d="M610,234 V264 H895 V294" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab" x="757" y="258">uma pessoa pega</text>
+          <!-- quem a trabalha -->
+          <path class="mapa__e" d="M440,218 V248 H230 V272" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M560,218 V248 H730 V272" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M810,218 V272" marker-end="url(#pta-gold)"/>
 
-          <!-- a lead pessoal desce para a pessoa -->
-          <path class="mapa__e" d="M955,234 V294" marker-end="url(#pta-gold)"/>
+          <!-- e passam-na entre si -->
+          <path class="mapa__e" d="M349,298 H647" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab mapa__lab--luz" x="498" y="290">resistência &middot; porta aberta</text>
+          <path class="mapa__e mapa__e--volta" d="M651,322 H353" marker-end="url(#pta-cinza)"/>
+          <text class="mapa__lab" x="498" y="344">lead parada &middot; nutrição</text>
 
-          <!-- o agente devolve à base quando precisa de ajuda a fechar -->
-          <path class="mapa__e" d="M60,312 H24 V205 H431" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab mapa__lab--luz" x="215" y="197">precisa de ajuda a fechar</text>
+          <!-- até à reunião -->
+          <path class="mapa__e" d="M230,338 V368 H460 V392" marker-end="url(#pta-gold)"/>
+          <path class="mapa__e" d="M770,338 V368 H540 V392" marker-end="url(#pta-gold)"/>
 
-          <!-- a pessoa desce a lead parada para os agentes -->
-          <path class="mapa__e mapa__e--volta" d="M806,327 H294" marker-end="url(#pta-cinza)"/>
-          <text class="mapa__lab" x="550" y="318">lead parada &middot; nutrição</text>
+          <!-- marcada, depois realizada -->
+          <path class="mapa__e" d="M500,458 V502" marker-end="url(#pta-gold)"/>
 
-          <!-- desfechos do trabalho -->
-          <path class="mapa__e" d="M220,356 V392 H490 V416" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab" x="330" y="384">converte</text>
-          <path class="mapa__e" d="M880,356 V392 H610 V416" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab" x="757" y="384">converte</text>
-          <path class="mapa__e mapa__e--volta" d="M175,356 V416" marker-end="url(#pta-cinza)"/>
-
-          <!-- da reunião ao destino -->
-          <path class="mapa__e" d="M490,478 V520 H340 V556" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab mapa__lab--luz" x="396" y="514">adjudicou</text>
-          <path class="mapa__e" d="M610,478 V520 H760 V556" marker-end="url(#pta-gold)"/>
-          <text class="mapa__lab" x="686" y="514">não adjudicou</text>
-
-          <!-- a fila fria volta aos agentes -->
-          <path class="mapa__e mapa__e--volta" d="M760,618 V660 H44 V341 H56" marker-end="url(#pta-cinza)"/>
-          <text class="mapa__lab" x="420" y="650">volta aos agentes, para nutrição</text>
+          <!-- e o desfecho -->
+          <path class="mapa__e" d="M460,568 V592 H350 V612" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab mapa__lab--luz" x="404" y="586">adjudicou</text>
+          <path class="mapa__e" d="M540,568 V592 H650 V612" marker-end="url(#pta-gold)"/>
+          <text class="mapa__lab" x="600" y="586">não adjudicou</text>
 
           <!-- ===== Nós ===== -->
 
           <g class="mapa__no">
-            <rect x="60" y="54" width="230" height="58"/>
-            <text class="mapa__t" x="175" y="80">Agente angaria</text>
-            <text class="mapa__s" x="175" y="98">prospeção por sinais</text>
+            <rect x="115" y="40" width="230" height="58"/>
+            <text class="mapa__t" x="230" y="66">Agente angaria</text>
+            <text class="mapa__s" x="230" y="84">nasce fria</text>
           </g>
 
           <g class="mapa__no">
-            <rect x="810" y="54" width="230" height="58"/>
-            <text class="mapa__t" x="925" y="80">Pessoa traz contacto</text>
-            <text class="mapa__s" x="925" y="98">rede própria</text>
+            <rect x="655" y="40" width="230" height="58"/>
+            <text class="mapa__t" x="770" y="66">Pessoa traz contacto</text>
+            <text class="mapa__s" x="770" y="84">nasce quente</text>
           </g>
 
           <g class="mapa__no mapa__no--base">
-            <rect x="435" y="176" width="230" height="58"/>
-            <text class="mapa__t" x="550" y="202">BD geral</text>
-            <text class="mapa__s" x="550" y="220">leads de equipa</text>
+            <rect x="385" y="160" width="230" height="58"/>
+            <text class="mapa__t" x="500" y="186">BD geral</text>
+            <text class="mapa__s" x="500" y="204">leads de equipa</text>
           </g>
 
           <g class="mapa__no mapa__no--luz">
-            <rect x="810" y="176" width="230" height="58"/>
-            <text class="mapa__t" x="925" y="202">Lead pessoal</text>
-            <text class="mapa__s" x="925" y="220">fica com quem a trouxe</text>
+            <rect x="695" y="160" width="230" height="58"/>
+            <text class="mapa__t" x="810" y="186">Lead pessoal</text>
+            <text class="mapa__s" x="810" y="204">fica com quem a trouxe</text>
           </g>
 
           <g class="mapa__no">
-            <rect x="60" y="298" width="230" height="58"/>
-            <text class="mapa__t" x="175" y="324">Agente trabalha</text>
-            <text class="mapa__s" x="175" y="342">contacta e avança</text>
+            <rect x="115" y="280" width="230" height="58"/>
+            <text class="mapa__t" x="230" y="306">Agente trabalha</text>
+            <text class="mapa__s" x="230" y="324">avança até à reunião</text>
           </g>
 
           <g class="mapa__no">
-            <rect x="810" y="298" width="230" height="58"/>
-            <text class="mapa__t" x="925" y="324">Pessoa trabalha</text>
-            <text class="mapa__s" x="925" y="342">contacta e fecha</text>
+            <rect x="655" y="280" width="230" height="58"/>
+            <text class="mapa__t" x="770" y="306">Pessoa trabalha</text>
+            <text class="mapa__s" x="770" y="324">contacta e fecha</text>
           </g>
 
           <g class="mapa__no mapa__no--fim">
-            <rect x="435" y="420" width="230" height="58"/>
-            <text class="mapa__t" x="550" y="446">Reunião marcada</text>
-            <text class="mapa__s" x="550" y="464">fim do trabalho comercial</text>
-          </g>
-
-          <g class="mapa__no mapa__no--morta">
-            <rect x="60" y="420" width="230" height="58"/>
-            <text class="mapa__t" x="175" y="446">Lead morta</text>
-            <text class="mapa__s" x="175" y="464">não converte &middot; não passa</text>
-          </g>
-
-          <g class="mapa__no mapa__no--fim">
-            <rect x="225" y="560" width="230" height="58"/>
-            <text class="mapa__t" x="340" y="586">Base de clientes</text>
-            <text class="mapa__s" x="340" y="604">Clientes e Projetos</text>
+            <rect x="385" y="396" width="230" height="58"/>
+            <text class="mapa__t" x="500" y="422">Reunião marcada</text>
+            <text class="mapa__s" x="500" y="440">conta para a meta</text>
           </g>
 
           <g class="mapa__no">
-            <rect x="645" y="560" width="230" height="58"/>
-            <text class="mapa__t" x="760" y="586">Fila fria</text>
-            <text class="mapa__s" x="760" y="604">arrefece, não se perde</text>
+            <rect x="385" y="506" width="230" height="58"/>
+            <text class="mapa__t" x="500" y="532">Reunião realizada</text>
+            <text class="mapa__s" x="500" y="550">o cliente apareceu</text>
+          </g>
+
+          <g class="mapa__no mapa__no--fim">
+            <rect x="235" y="612" width="230" height="58"/>
+            <text class="mapa__t" x="350" y="638">Base de clientes</text>
+            <text class="mapa__s" x="350" y="656">Clientes e Projetos</text>
+          </g>
+
+          <g class="mapa__no">
+            <rect x="535" y="612" width="230" height="58"/>
+            <text class="mapa__t" x="650" y="638">Fila fria</text>
+            <text class="mapa__s" x="650" y="656">volta aos agentes</text>
           </g>
 
         </svg>
@@ -380,10 +370,17 @@
       </div>
 
       <p class="ff__nota">
-        Na lead pessoal é o comercial que escolhe: trata-a ele ou põe um agente a geri-la.
-        <strong>A lead continua dele e a comissão também.</strong>
-        O agente só devolve uma lead quando encontra resistência mas a porta continua aberta,
-        e devolve-a com o motivo e um resumo. <strong>Leads mortas não passam.</strong>
+        <strong>O que o mapa não mostra, para não ficar ilegível.</strong>
+        Uma lead pessoal pode ser delegada num agente &mdash; continua a ser de quem a trouxe,
+        e a comissão também. Duas semanas sem interação libertam o dono e a lead volta à BD geral;
+        as pessoais não estão sujeitas a isso. O que não converte fica por lead morta e não passa
+        a ninguém; se houver recusa explícita de contacto, sai de vez e ninguém lhe volta a tocar.
+      </p>
+
+      <p class="ff__nota">
+        <strong>A origem nunca muda.</strong> Fria se nasceu num agente, quente se nasceu numa
+        pessoa &mdash; fica assim para sempre, mesmo que salte de fila. O que muda é quem a está
+        a tratar. É isso que permite comparar depois qual das duas origens converte melhor.
       </p>
     </div>
 
