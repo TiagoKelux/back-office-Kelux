@@ -180,15 +180,12 @@
 
     const iDegrau = ESCADA.degraus.indexOf(ESCADA.metaAtual) + 1;
 
-    /* O número grande da secção acompanha a vista */
-    $('#mega-total').textContent = v.total;
-    $('#mega-etiqueta').textContent = v.etiqueta.charAt(0).toUpperCase() + v.etiqueta.slice(1);
-
     $('#stats').innerHTML = [
+      ['Reuniões marcadas', v.total, 'luz', v.etiqueta],
       ['Meta da semana', ESCADA.metaAtual, '', 'Equipa toda'],
       ['Degrau atual', romano(iDegrau) + ' de ' + romano(ESCADA.degraus.length), '', ESCADA.metaAtual + ' reuniões'],
       ['No-show da equipa', nsEquipa + '%', '', 'reuniões já realizadas'],
-      ['Recorde da equipa', RECORDE.valor, 'luz', RECORDE.quando]
+      ['Recorde da equipa', RECORDE.valor, '', RECORDE.quando]
     ].map(s =>
       '<div class="stat">' +
         '<span class="stat__k">' + s[0] + '</span>' +

@@ -316,7 +316,25 @@ a.area:hover .area__name{ color:var(--luz-core); }
 .sec + .sec{ border-top:1px solid var(--line-soft); }
 
 .sec__head{ margin-bottom:clamp(28px,4.5vh,46px); }
-.sec__eyebrow{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+
+/* Abertura de capítulo — o nome da secção é o marcador */
+.sec__eyebrow{
+  display:flex; align-items:center; gap:13px;
+  margin-bottom:clamp(18px,2.6vh,28px);
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.sec__eyebrow .rn{
+  font-size:15px;
+  letter-spacing:.16em;
+  color:var(--gold);
+}
+.sec__eyebrow .lbl{
+  font-size:13.5px;
+  letter-spacing:.24em;
+  color:var(--luz-core);
+}
+
 .sec__head h2{ margin-bottom:16px; }
 .sec__lede{ font-size:clamp(15.5px,1.7vw,18px); color:var(--mut); max-width:62ch; }
 
