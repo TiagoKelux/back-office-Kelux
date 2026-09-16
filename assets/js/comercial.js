@@ -10,8 +10,8 @@
   const $  = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
 
-  const ROMANOS = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
-  const romano = n => ROMANOS[n - 1] || String(n);
+  // Numeração em algarismos, com zero à esquerda — legível a qualquer distância
+  const numero = n => String(n).padStart(2, '0');
 
   const pessoa = id => EQUIPA.find(p => p.id === id) || { nome: id, foto: null };
 
@@ -183,7 +183,7 @@
     $('#stats').innerHTML = [
       ['Reuniões marcadas', v.total, 'luz', v.etiqueta],
       ['Meta da semana', ESCADA.metaAtual, '', 'Equipa toda'],
-      ['Degrau atual', romano(iDegrau) + ' de ' + romano(ESCADA.degraus.length), '', ESCADA.metaAtual + ' reuniões'],
+      ['Degrau atual', numero(iDegrau) + ' de ' + numero(ESCADA.degraus.length), '', ESCADA.metaAtual + ' reuniões'],
       ['No-show da equipa', nsEquipa + '%', '', 'reuniões já realizadas'],
       ['Recorde da equipa', RECORDE.valor, '', RECORDE.quando]
     ].map(s =>
@@ -198,7 +198,7 @@
       const p = pessoa(l.id);
       const pct = Math.round((l.reunioes / topo) * 100);
       return '<div class="bar' + (i === 0 ? ' bar--lead' : '') + '">' +
-               '<span class="bar__rank">' + romano(i + 1) + '</span>' +
+               '<span class="bar__rank">' + numero(i + 1) + '</span>' +
                avatar(p, 'bar__photo', 'bar__initial') +
                '<div class="bar__mid">' +
                  '<div class="bar__name">' + p.nome + '</div>' +

@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Kelux AI — Back office interno
+   Área financeira — o que painel.css não cobre.
+   ========================================================================== */
+
+/* Números em euros não pedem o mesmo tamanho que uma contagem de clientes:
+   têm mais dígitos e precisam de caber na coluna */
+.kpi__n--eur{ font-size:clamp(28px,3.6vw,40px); letter-spacing:-.01em; }
+
+.kpi--bom   .kpi__n{ color:var(--verde); }
+.kpi--ambar .kpi__n{ color:var(--amarelo); }
+
+/* --------------------------------------------------------------------------
+   Barra de cobrança
+   -------------------------------------------------------------------------- */
+
+.cobranca{ margin-top:26px; }
+
+.cobranca__barra{
+  display:flex; height:16px; overflow:hidden;
+  border:1px solid var(--line-soft);
+}
+.cobranca__parte{ height:100%; }
+.cobranca__parte--pago{ background:var(--verde); }
+.cobranca__parte--divida{
+  background:repeating-linear-gradient(
+    45deg, #C87A63, #C87A63 5px, #D9937E 5px, #D9937E 10px);
+}
+
+.cobranca__leg{
+  display:flex; gap:22px; flex-wrap:wrap; margin-top:12px;
+  font-size:13px; color:var(--mut);
+}
+.cobranca__leg span{ display:inline-flex; align-items:center; gap:8px; }
+
+.ponto{ width:10px; height:10px; display:inline-block; }
+.ponto--pago{ background:var(--verde); }
+.ponto--divida{ background:#C87A63; }
+
+/* --------------------------------------------------------------------------
+   Realces — o que a folha não explica, dito em voz alta
+   -------------------------------------------------------------------------- */
+
+.realce{ margin-top:30px; display:grid; gap:12px; }
+
+.realce__l{
+  margin:0; padding:14px 16px;
+  background:var(--ink-2);
+  border-left:2px solid var(--luz);
+  font-size:14px; line-height:1.55; color:var(--mut);
+  max-width:74ch;
+}
+.realce__l b{ color:var(--txt-warm); font-weight:600; }
+
+/* --------------------------------------------------------------------------
+   Lista de faturas
+   -------------------------------------------------------------------------- */
+
+.linha--fat{
+  grid-template-columns:minmax(150px,2fr) minmax(80px,.8fr) minmax(130px,1fr) auto;
+}
+
+.linha--vermelho{ background:#F6EBE6; }
+.linha--ambar{ background:#F6F0E0; }
+
+.linha__eur{
+  font-family:var(--mono); font-size:15px; color:var(--txt-warm);
+  text-align:right;
+}
+.linha__liq{
+  display:block; font-size:11px; color:var(--mut); margin-top:3px;
+}
+
+.linha--soma{
+  background:var(--ink-2);
+  border-top:1px solid var(--line);
+}
+.linha--soma .linha__eur{ font-size:17px; }
+
+.pastilha{
+  font-family:var(--mono); font-size:10px; letter-spacing:.13em;
+  text-transform:uppercase; padding:5px 10px;
+  border:1px solid var(--line-soft); white-space:nowrap;
+}
+.pastilha--verde   { color:var(--verde);    border-color:rgba(78,122,90,.4); }
+.pastilha--vermelho{ color:var(--vermelho); border-color:rgba(168,60,39,.4); }
+.pastilha--ambar   { color:var(--amarelo);  border-color:rgba(169,120,26,.4); }
+.pastilha--neutro  { color:var(--mut); }
+
+/* --------------------------------------------------------------------------
+   Custos
+   -------------------------------------------------------------------------- */
+
+.custos{ margin-top:26px; border:1px solid var(--line-soft); }
+
+.custo{
+  display:grid; grid-template-columns:minmax(90px,1fr) 3fr minmax(70px,auto);
+  gap:16px; align-items:center;
+  padding:13px 18px;
+  border-bottom:1px solid var(--line-soft);
+  background:var(--ink);
+}
+.custo:last-child{ border-bottom:0; }
+
+.custo__r{ font-size:14.5px; color:var(--txt-warm); }
+.custo__b{ height:8px; background:var(--line-soft); }
+.custo__b span{ display:block; height:100%; background:var(--gold-deep); }
+.custo__v{
+  font-family:var(--mono); font-size:13.5px; color:var(--mut); text-align:right;
+}
+
+@media (max-width:720px){
+  .linha--fat{ grid-template-columns:1fr; }
+  .linha__eur{ text-align:left; }
+  .custo{ grid-template-columns:1fr auto; }
+  .custo__b{ grid-column:1 / -1; }
+}

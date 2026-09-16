@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F3EFE6">
+<title>Gestão de clientes — Back office Kelux AI</title>
+<meta name="description" content="Os clientes já adjudicados da Kelux AI: carteira, últimas interações e sinais de quem está a arrefecer.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="assets/css/kelux.css">
+<link rel="stylesheet" href="assets/css/painel.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <div class="brand">
+      <span class="brand__mark">Kelux</span>
+      <span class="brand__sub">Gestão de clientes</span>
+    </div>
+    <div class="topbar__spacer"></div>
+    <a class="back" href="comercial.html">&larr; Comercial</a>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Separadores da gestão de clientes">
+  <div class="wrap tabs__in" id="tabs" role="tablist"></div>
+</nav>
+
+<main class="wrap">
+
+  <!-- =====================================================================
+       01 — DASHBOARD
+       ===================================================================== -->
+  <section class="painel is-on" id="p1" data-rn="01" data-nome="Dashboard" role="tabpanel">
+    <div class="painel__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">01</span>
+        <span class="lbl">Ao dia de hoje</span>
+      </div>
+      <h2>Quem temos connosco.</h2>
+      <p class="painel__lede">Clientes já adjudicados, repartidos entre quem fica todos os meses e quem veio uma vez.</p>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="split">
+      <div class="split__barra" id="split-barra" aria-hidden="true"></div>
+      <div class="split__leg" id="split-leg"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       02 — CARTEIRA
+       ===================================================================== -->
+  <section class="painel" id="p2" data-rn="02" data-nome="Carteira" role="tabpanel">
+    <div class="painel__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">02</span>
+        <span class="lbl">A carteira</span>
+      </div>
+      <h2>Os clientes são a nossa luz.</h2>
+    </div>
+
+    <div class="filtros filtros--ceu" id="filtros-ceu"></div>
+
+    <div class="mapa" id="mapa"></div>
+
+    <div class="mapa__leg">
+      <span><span class="split__ponto split__ponto--avenca"></span> Avença</span>
+      <span><span class="split__ponto split__ponto--oneshot"></span> One-shot</span>
+      <span>Halo vermelho &mdash; sem contacto há mais de 5 dias</span>
+      <span class="mapa__conta" id="mapa-conta"></span>
+    </div>
+
+    <p class="nota-priv">
+      Sem números, de propósito. Esta página é vista por toda a equipa, por isso
+      o peso de cada cliente lê-se pela comparação entre galáxias e não em euros.
+    </p>
+  </section>
+
+  <!-- =====================================================================
+       03 — ACOMPANHAMENTO
+       ===================================================================== -->
+  <section class="painel" id="p3" data-rn="03" data-nome="Acompanhamento" role="tabpanel">
+    <div class="painel__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">03</span>
+        <span class="lbl">O termómetro</span>
+      </div>
+      <h2>Com quem já não falamos.</h2>
+      <p class="painel__lede">Até cinco dias está em dia. Acima de cinco fica vermelho, acima de sete é crítico &mdash; nem que seja uma mensagem.</p>
+    </div>
+
+    <div class="filtros" id="filtros"></div>
+    <div class="lista" id="lista"></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>Kelux AI &middot; Back office interno</span>
+    <span id="foot-periodo">Dados de exemplo</span>
+  </div>
+</footer>
+
+<div class="dica" id="dica" role="status" aria-live="polite"></div>
+
+<script src="assets/js/dados.js"></script>
+<script src="assets/js/clientes-dados.js"></script>
+<script src="assets/js/clientes.js"></script>
+</body>
+</html>

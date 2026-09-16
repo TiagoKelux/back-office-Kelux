@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F3EFE6">
+<title>Financeiro — Back office Kelux AI</title>
+<meta name="description" content="Área financeira da Kelux AI: o que está faturado, o que já foi cobrado e o que falta receber.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="assets/css/kelux.css">
+<link rel="stylesheet" href="assets/css/painel.css">
+<link rel="stylesheet" href="assets/css/financeiro.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <div class="brand">
+      <span class="brand__mark">Kelux</span>
+      <span class="brand__sub">Financeiro</span>
+    </div>
+    <div class="topbar__spacer"></div>
+    <a class="back" href="index.html">&larr; Áreas</a>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Separadores da área financeira">
+  <div class="wrap tabs__in" id="tabs" role="tablist"></div>
+</nav>
+
+<main class="wrap">
+
+  <!-- =====================================================================
+       01 — POSIÇÃO
+       ===================================================================== -->
+  <section class="painel is-on" id="f1" data-rn="01" data-nome="Posição" role="tabpanel">
+    <div class="painel__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">01</span>
+        <span class="lbl">Faturado e cobrado</span>
+      </div>
+      <h2>Faturar não é receber.</h2>
+      <p class="painel__lede">O que saiu em fatura, o que já entrou em conta, e a distância entre as duas coisas.</p>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="cobranca">
+      <div class="cobranca__barra" id="cobranca-barra" aria-hidden="true"></div>
+      <div class="cobranca__leg" id="cobranca-leg"></div>
+    </div>
+
+    <div class="realce" id="realce"></div>
+  </section>
+
+  <!-- =====================================================================
+       02 — FATURAS
+       ===================================================================== -->
+  <section class="painel" id="f2" data-rn="02" data-nome="Faturas" role="tabpanel">
+    <div class="painel__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">02</span>
+        <span class="lbl">Linha a linha</span>
+      </div>
+      <h2>Onde está cada euro.</h2>
+      <p class="painel__lede">Agosto fechado e setembro em pipeline, com o estado de cada fatura.</p>
+    </div>
+
+    <div class="filtros" id="filtros"></div>
+    <div class="lista" id="lista"></div>
+  </section>
+
+  <!-- =====================================================================
+       03 — CUSTOS
+       ===================================================================== -->
+  <section class="painel" id="f3" data-rn="03" data-nome="Custos" role="tabpanel">
+    <div class="painel__head">
+      <div class="sec__eyebrow">
+        <span class="lamp lamp--on" aria-hidden="true"></span>
+        <span class="rn">03</span>
+        <span class="lbl">O que sai todos os meses</span>
+      </div>
+      <h2>O que a casa custa.</h2>
+      <p class="painel__lede">Estrutura de custos mensal, e a faturação que é precisa para a cobrir.</p>
+    </div>
+
+    <div class="kpis" id="kpis-custos"></div>
+    <div class="custos" id="custos"></div>
+    <p class="nota-priv" id="nota-custos"></p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>Kelux AI &middot; Back office interno</span>
+    <span id="foot-periodo">Folha de faturação</span>
+  </div>
+</footer>
+
+<script src="assets/js/financeiro-dados.js"></script>
+<script src="assets/js/financeiro.js"></script>
+</body>
+</html>
